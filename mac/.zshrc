@@ -60,6 +60,8 @@ export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 export GOPATH="$HOME/WorkSpace/go"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/Utilities/activator-1.2.7"
+export PATH="$PATH:$HOME/Utilities/apache-tomcat-7.0.55/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
