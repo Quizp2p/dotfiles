@@ -5,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+
+# use the pure theme form https://github.com/sindresorhus/pure
 ZSH_THEME="pure"
 
 # Example aliases
@@ -100,12 +101,12 @@ alias -s bz2='tar -xjvf'
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
 # for pure prompt
-# autoload -U promptinit && promptinit
+#autoload -U promptinit && promptinit
 
 # optionally define some options
-# PURE_CMD_MAX_EXEC_TIME=10
+#PURE_CMD_MAX_EXEC_TIME=10
 
 # Set PURE_GIT_PULL=0 to prevent Pure from checking whether the current Git remote has been updated.
 # PURE_GIT_PULL=0
 
-# prompt pure
+#prompt pure
