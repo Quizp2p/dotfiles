@@ -2,7 +2,7 @@ syntax on
 
 set number
 set incsearch
-set hlsearch
+"set hlsearch
 
 "Set key maps for Insert newline without entering insert mode
 ""Shit-Enter for inserting a line before the current line

@@ -1,4 +1,4 @@
 "source ~/.vimrc
-set guifont=Droid\ Sans\ Mono:h13
+set guifont=Menlo:h13
 "set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night
