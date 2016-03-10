@@ -51,18 +51,22 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git)
-plugins=(git sublime osx vagrant docker zsh-syntax-highlighting)
+plugins=(git gitignore brew osx vagrant docker zsh-syntax-highlighting bwana node npm nvm gradle bower battery web-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 export GOPATH="$HOME/WorkSpace/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/Utilities/activator-1.2.7"
 export PATH="$PATH:$HOME/Utilities/apache-tomcat-7.0.55/bin"
+
+# export for MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -81,21 +85,22 @@ export PATH="$PATH:$HOME/Utilities/apache-tomcat-7.0.55/bin"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-alias grep="grep --color=auto"
-alias -s html=st   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
-alias -s rb=st     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
-alias -s py=st       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-alias -s js=st
-alias -s css=st
-alias -s less=st
-alias -s ts=st
-alias -s c=st
-alias -s java=st
-alias -s txt=st
+alias -s html=atom   # 在命令行直接输入后缀为 html 的文件名，会在 Atom 中打开
+alias -s rb=atom     # 在命令行直接输入 ruby 文件，会在 Atom 中打开
+alias -s py=atom       # 在命令行直接输入 python 文件，会用 Atom 中打开，以下类似
+alias -s js=atom
+alias -s css=atom
+alias -s less=atom
+alias -s ts=atom
+alias -s c=atom
+alias -s java=atom
+alias -s txt=atom
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
+alias grep="grep --color=auto"
+alias gitgf='git log --decorate --graph --oneline --all'
 
 # for autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
@@ -110,3 +115,34 @@ alias -s bz2='tar -xjvf'
 # PURE_GIT_PULL=0
 
 #prompt pure
+
+# Set the http proxy for shell
+# export http_proxy=http://127.0.0.1:7777/
+# export ftp_proxy=http://127.0.0.1:7777/
+
+export NVM_DIR="/Users/quiz/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#alias for cnpm
+alias cnpm="npm --registry=http://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=http://registry.npm.taobao.org/mirrors/node \
+  --userconfig=$HOME/.cnpmrc"
+
+# Set JAVA_HOME
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home"
+
+# Set GRADLE_HOME
+export GRADLE_HOME="/usr/local/Cellar/gradle/2.10/libexec"
+
+# Set rvm PATH
+export rvm_path="$HOME/.rvm"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/quiz/.sdkman"
+[[ -s "/Users/quiz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/quiz/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
