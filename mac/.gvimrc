@@ -1,4 +1,5 @@
-"source ~/.vimrc
-set guifont=Menlo:h13
-"set background=dark
-colorscheme Tomorrow-Night
+source ~/.vimrc
+set guifont=Droid_Sans_Mono:h13
+set background=dark
+" colorscheme seti
+

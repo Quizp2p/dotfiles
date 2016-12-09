@@ -51,7 +51,7 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git)
-plugins=(git gitignore brew osx vagrant docker zsh-syntax-highlighting bwana node npm nvm gradle bower battery web-search vi-mode)
+plugins=(git gitignore brew osx vagrant docker zsh-syntax-highlighting bwana node npm nvm gradle bower battery web-search zsh-autosuggestions zsh-completions extract z ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,25 +59,26 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
-export GOPATH="$HOME/WorkSpace/go"
+export GOPATH="$HOME/Documents/workspace/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/Utilities/activator-1.2.7"
 export PATH="$PATH:$HOME/Utilities/apache-tomcat-7.0.55/bin"
-
+export PATH="$PATH:$HOME/anaconda/bin"
+export PATH="$PATH:./node_modules/.bin"
 # export for MacPorts
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -101,18 +102,21 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias grep="grep --color=auto"
 alias gitgf='git log --decorate --graph --oneline --all'
+alias ttyjs='tty.js --port 8077'
+alias pc='proxychains4'
 
 # for autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+#[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
 # for pure prompt
 #autoload -U promptinit && promptinit
+autoload -U compinit && compinit
 
 # optionally define some options
-#PURE_CMD_MAX_EXEC_TIME=10
+PURE_CMD_MAX_EXEC_TIME=10
 
 # Set PURE_GIT_PULL=0 to prevent Pure from checking whether the current Git remote has been updated.
-# PURE_GIT_PULL=0
+ PURE_GIT_PULL=0
 
 #prompt pure
 
@@ -146,3 +150,16 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+#
+#To enable agent forwarding support
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+#To load multiple identities use the identities style
+zstyle :omz:plugins:ssh-agent identities id_rsa
+
+#To set the maximum lifetime of the identities, use the lifetime style. The lifetime may be specified in seconds or as described in sshd_config(5) (see TIME FORMATS). If left unspecified, the default lifetime is forever.
+#
+zstyle :omz:plugins:ssh-agent lifetime 4h
